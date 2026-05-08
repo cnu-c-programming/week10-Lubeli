@@ -3,8 +3,8 @@
 
 struct IPv4{
     unsigned int version;
-    unsigned int ih1;
-    unsigned long long tt1;
+    unsigned int ihl;
+    unsigned long long ttl;
     unsigned long long protocol;
     unsigned char data[1024];
 };
@@ -12,14 +12,14 @@ struct IPv4{
 int main(){
     struct IPv4 s;
     s.version = 0;
-    s.ih1 = 0;
-    s.tt1 = 256;
+    s.ihl = 0;
+    s.ttl = 256;
     s.protocol = 0;
     sprintf(s.data, "hello world");
 
     printf("version: %u, size: %zu\n", s.version, sizeof(s.version));
-    printf("ih1: %u, size: %zu\n", s.ih1, sizeof(s.ih1));
-    printf("tt1: %u, size: %zu\n", s.tt1, sizeof(s.tt1));
-    printf("protocol: %u, size: %zu\n", s.protocol, sizeof(s.protocol));
+    printf("ihl: %u, size: %zu\n", s.ihl, sizeof(s.ihl));
+    printf("ttl: %11u, size: %zu\n", s.ttl, sizeof(s.ttl));
+    printf("protocol: %11u, size: %zu\n", s.protocol, sizeof(s.protocol));
     printf("data: %u, size: %zu\n", s.data, sizeof(s.data));
 }
